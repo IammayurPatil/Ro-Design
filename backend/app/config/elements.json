@@ -1,0 +1,17 @@
+[
+  {
+    "model": "LP22-8040",
+    "areaFt2": 400,
+    "testFlowGpd": null,
+    "testRejectionPct": null,
+    "testPressurePsi": null,
+    "testNaClMgL": null,
+    "testRecoveryPct": null,
+    "testTempC": 25,
+    "maxPressurePsi": null,
+    "maxFeedGpm": null,
+    "minConcGpm": null,
+    "dpK": null,
+    "_notes": "TODO-CONFIRM: fill the null values from the Vontron datasheet. dpK = pressure drop constant in bar per (m3/h)^1.75 of the element's average flow."
+  }
+]

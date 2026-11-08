@@ -1,0 +1,23 @@
+{
+  "_notes": "Design engine constants (prompt section 6.3). The whole engine is PROVISIONAL / TODO-CONFIRM.",
+  "tcf": { "kHigh": 2640, "kLow": 3020, "switchTempC": 25, "refTempK": 298.15 },
+  "osmotic": { "R": 0.08314 },
+  "cpf": { "coefficient": 0.7 },
+  "pressureDrop": { "exponent": 1.75 },
+  "ionPassageRatio": {
+    "_notes": "TODO-CONFIRM: per-ion salt passage relative to the datasheet NaCl passage. 1.0 = same as NaCl.",
+    "Na": 1.0, "Ca": 1.0, "Mg": 1.0, "K": 1.0, "Ba": 1.0, "Sr": 1.0, "NH4": 1.0, "B": 1.0,
+    "Cl": 1.0, "CO3": 1.0, "HCO3": 1.0, "F": 1.0, "NO3": 1.0, "SO4": 1.0, "SiO2": 1.0
+  },
+  "solver": {
+    "permeateTolerance": 0.001,
+    "elementMaxIterations": 200,
+    "elementTolerance": 1e-9,
+    "recycleTolerance": 0.001,
+    "recycleMaxIterations": 100,
+    "minFeedPressureBar": 0.1,
+    "maxFeedPressureBar": 83
+  },
+  "foulingFactor": { "min": 0.5, "max": 1.0, "default": 0.85 },
+  "limits": { "maxPasses": 2, "maxStagesPerPass": 3, "maxElementsPerVessel": 8 }
+}

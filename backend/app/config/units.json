@@ -1,0 +1,15 @@
+{
+  "_notes": "Unit conversions (prompt section 6.2). Internal units: mg/L, C, m3/h, bar.",
+  "gpmToM3h": 0.2271,
+  "gpmToGpd": 1440,
+  "m3hToM3d": 24,
+  "barToPsi": 14.504,
+  "ft2ToM2": 0.0929,
+  "gfdToLmh": 1.698,
+  "unitSets": {
+    "gpd_psi": { "flow": "gpd", "pressure": "psi" },
+    "gpm_psi": { "flow": "gpm", "pressure": "psi" },
+    "m3h_bar": { "flow": "m3/h", "pressure": "bar" },
+    "m3d_bar": { "flow": "m3/d", "pressure": "bar" }
+  }
+}
