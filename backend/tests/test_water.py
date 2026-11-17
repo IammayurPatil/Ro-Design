@@ -105,6 +105,19 @@ def test_tds_is_recomputed_not_stored(tc_water_a):
 
 
 def test_validation_messages():
-    r = analyze(make_water(temperatureC=50, pH=14))
+    # Vontron 6.1: "Temperature Limits:0~40 C" and "Limits of pH:0~14"
+    r = analyze(make_water(temperatureC=41, pH=15))
     texts = " ".join(m["text"] for m in r["messages"])
     assert "Temperature" in texts and "pH" in texts
+    for t, ph in ((0, 0), (40, 14)):  # end values are accepted (to be confirmed in Vontron)
+        ok = " ".join(m["text"] for m in analyze(make_water(temperatureC=t, pH=ph))["messages"])
+        assert "Temperature" not in ok and "pH must" not in ok
+
+
+def test_co3_is_always_zero_like_vontron():
+    """Vontron's CO3 box is always disabled (0), so a typed/loaded CO3 must be ignored."""
+    from app.calc import water as W
+    w = {"ions": {"Na": 100, "Cl": 100, "CO3": 30}, "specifyIndividualSolutes": True, "pH": 9, "temperatureC": 25}
+    a = W.analyze(w)
+    assert a["rows"]["CO3"]["mgL"] == 0 and a["rows"]["CO3"]["meq"] == 0
+    assert abs(a["tds"] - 200) < 1e-9

@@ -17,6 +17,13 @@ def _round_mgl(v: float) -> float:
     return v
 
 
+def _lock(ions: dict) -> dict:
+    """Vontron never lets CO3 be entered; it is always 0 (config lockedIons)."""
+    for k in CFG.get("lockedIons", []):
+        ions[k] = 0.0
+    return ions
+
+
 def effective_ions(water: dict) -> dict:
     """mg/L of every ion as used by the calculation.
 
@@ -28,9 +35,9 @@ def effective_ions(water: dict) -> dict:
         ions = {k: 0.0 for k in ORDER}
         for ion, frac in CFG["tdsOnlyMode"]["split"].items():
             ions[ion] = _round_mgl(tds * frac)
-        return ions
+        return _lock(ions)
     src = water.get("ions") or {}
-    return {k: float(src.get(k) or 0) for k in ORDER}
+    return _lock({k: float(src.get(k) or 0) for k in ORDER})
 
 
 def meq(ion: str, mgl: float):
@@ -52,6 +59,12 @@ def compute_tds(ions: dict) -> float:
 def charge_totals(ions: dict):
     cations = sum(meq(k, ions.get(k, 0)) for k in CATIONS)
     anions = sum(meq(k, ions.get(k, 0)) for k in ANIONS)
+    if CFG["balance"].get("balanceFromRoundedTotals"):
+        # Vontron adds the per-ion meq as displayed (2 decimals), rounds each total to 1 decimal,
+        # then subtracts. Confirmed: 8.55 -> 8.6 vs 8.56 -> 8.6 (balance 0.0); 10.0 - 7.6 = 2.4.
+        cations = round_half_up(sum(round_half_up(meq(k, ions.get(k, 0)), 2) for k in CATIONS), 1)
+        anions = round_half_up(sum(round_half_up(meq(k, ions.get(k, 0)), 2) for k in ANIONS), 1)
+        return cations, anions, round_half_up(cations - anions, 1)
     return cations, anions, cations - anions
 
 
@@ -84,8 +97,8 @@ def analyze(water: dict) -> dict:
     cations, anions, balance = charge_totals(ions)
     biggest = max(cations, anions)
     fraction = abs(balance) / biggest if biggest > 0 else 0.0
-    # TODO-CONFIRM: imbalance threshold is provisional (config balance.imbalanceWarningFraction)
-    imbalance = fraction > CFG["balance"]["imbalanceWarningFraction"]
+    # Confirmed: absolute threshold on the displayed (1-decimal) balance, not a percentage.
+    imbalance = abs(balance) > CFG["balance"]["imbalanceWarningMeq"] + 1e-9
     messages = []
     if imbalance:
         messages.append({"level": "warning", "text": CFG["balance"]["warningText"]})
@@ -117,8 +130,9 @@ def auto_balance(water: dict) -> dict:
     if balance < 0:
         ion = CFG["balance"]["anionExcessIon"]
     else:
-        ion = CFG["balance"]["cationExcessIon"]  # TODO-CONFIRM: provisional
-    ions[ion] = _round_mgl(ions[ion] + b * IONS[ion]["eqWt"])
+        ion = CFG["balance"]["cationExcessIon"]
+    per_meq = CFG["balance"]["correctionMgPerMeq"].get(ion, IONS[ion]["eqWt"])
+    ions[ion] = _round_mgl(ions[ion] + b * per_meq)
     # Balancing switches the water to individual solutes so the correction is kept.
     out["specifyIndividualSolutes"] = True
     out["ions"] = ions

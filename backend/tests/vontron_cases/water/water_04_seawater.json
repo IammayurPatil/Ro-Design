@@ -1,0 +1,129 @@
+{
+  "case": "water_04_seawater",
+  "title": "Seawater",
+  "purpose": "Large values, TDS sum, boron",
+  "vontronVersion": "6.1",
+  "capturedOn": "2026-11-15",
+  "howTo": "In Vontron enter the 'input' below (or open projects/<case>.json in our app and copy the same values). Then replace every null under 'vontron' with the number Vontron shows. Leave B and SiO2 ppmCaCO3 / meq as null.",
+  "input": {
+    "inputUnit": "mg/L",
+    "specifyIndividualSolutes": true,
+    "tdsInput": null,
+    "temperatureC": 25,
+    "pH": 8.1,
+    "waterType": "RO Permeate SDI < 1",
+    "ions": {
+      "Na": 10760.0,
+      "Ca": 412.0,
+      "Mg": 1294.0,
+      "K": 399.0,
+      "Ba": 0.0,
+      "Sr": 8.0,
+      "NH4": 0.0,
+      "B": 4.5,
+      "Cl": 19350.0,
+      "CO3": 0.0,
+      "HCO3": 142.0,
+      "F": 1.3,
+      "NO3": 0.0,
+      "SO4": 2710.0,
+      "SiO2": 1.0
+    }
+  },
+  "vontron": {
+    "rows": {
+      "Na": {
+        "mgL": 10760,
+        "ppmCaCO3": 23456.8,
+        "meq": 467.83
+      },
+      "Ca": {
+        "mgL": 412,
+        "ppmCaCO3": 1030.0,
+        "meq": 20.56
+      },
+      "Mg": {
+        "mgL": 1294,
+        "ppmCaCO3": 5331.28,
+        "meq": 106.46
+      },
+      "K": {
+        "mgL": 399,
+        "ppmCaCO3": 510.72,
+        "meq": 10.2
+      },
+      "Ba": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "Sr": {
+        "mgL": 8,
+        "ppmCaCO3": 9.12,
+        "meq": 0.18
+      },
+      "NH4": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "B": {
+        "mgL": 4.5,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Cl": {
+        "mgL": 19350,
+        "ppmCaCO3": 27283.5,
+        "meq": 545.84
+      },
+      "CO3": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "HCO3": {
+        "mgL": 142,
+        "ppmCaCO3": 116.44,
+        "meq": 2.33
+      },
+      "F": {
+        "mgL": 1.3,
+        "ppmCaCO3": 3.46,
+        "meq": 0.07
+      },
+      "NO3": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "SO4": {
+        "mgL": 2710,
+        "ppmCaCO3": 2818.4,
+        "meq": 56.46
+      },
+      "SiO2": {
+        "mgL": 1.0,
+        "ppmCaCO3": null,
+        "meq": null
+      }
+    },
+    "totals": {
+      "cations": null,
+      "anions": null,
+      "balance": 0.5,
+      "tds": null
+    },
+    "imbalanceWarning": true,
+    "warningText": "Warning:Ions out of Balance.",
+    "autoBalance": null
+  },
+  "projectExpectsForReference": {
+    "tds": 35103.04,
+    "cations": 605.274,
+    "anions": 604.658,
+    "imbalancePct": 0.1,
+    "imbalanceWarning": false
+  },
+  "note": "Vontron: cations 605.2, anions 604.7, balance 0.5, warning shown. TDS shown 35103.0 (1 decimal) vs our 35103.04, so TDS is not compared."
+}

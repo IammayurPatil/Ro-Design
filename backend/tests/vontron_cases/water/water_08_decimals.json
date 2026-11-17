@@ -1,0 +1,129 @@
+{
+  "case": "water_08_decimals",
+  "title": "Values with many decimals",
+  "purpose": "mg/L rounding to 2 decimals and ppm/meq rounding",
+  "vontronVersion": "6.1",
+  "capturedOn": "2026-11-15",
+  "howTo": "In Vontron enter the 'input' below (or open projects/<case>.json in our app and copy the same values). Then replace every null under 'vontron' with the number Vontron shows. Leave B and SiO2 ppmCaCO3 / meq as null.",
+  "input": {
+    "inputUnit": "mg/L",
+    "specifyIndividualSolutes": true,
+    "tdsInput": null,
+    "temperatureC": 25,
+    "pH": 7.5,
+    "waterType": "RO Permeate SDI < 1",
+    "ions": {
+      "Na": 123.456,
+      "Ca": 45.678,
+      "Mg": 12.345,
+      "K": 3.215,
+      "Ba": 0.0,
+      "Sr": 0.0,
+      "NH4": 0.0,
+      "B": 0.0,
+      "Cl": 190.555,
+      "CO3": 0.0,
+      "HCO3": 150.125,
+      "F": 0.0,
+      "NO3": 0.0,
+      "SO4": 75.995,
+      "SiO2": 10.005
+    }
+  },
+  "vontron": {
+    "rows": {
+      "Na": {
+        "mgL": 123.456,
+        "ppmCaCO3": 269.13,
+        "meq": 5.37
+      },
+      "Ca": {
+        "mgL": 45.678,
+        "ppmCaCO3": 114.2,
+        "meq": 2.28
+      },
+      "Mg": {
+        "mgL": 12.345,
+        "ppmCaCO3": 50.86,
+        "meq": 1.02
+      },
+      "K": {
+        "mgL": 3.215,
+        "ppmCaCO3": 4.12,
+        "meq": 0.08
+      },
+      "Ba": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "Sr": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "NH4": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "B": {
+        "mgL": 0.0,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Cl": {
+        "mgL": 190.555,
+        "ppmCaCO3": 268.68,
+        "meq": 5.38
+      },
+      "CO3": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "HCO3": {
+        "mgL": 150.125,
+        "ppmCaCO3": 123.1,
+        "meq": 2.46
+      },
+      "F": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "NO3": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "SO4": {
+        "mgL": 75.995,
+        "ppmCaCO3": 79.03,
+        "meq": 1.58
+      },
+      "SiO2": {
+        "mgL": 10.005,
+        "ppmCaCO3": null,
+        "meq": null
+      }
+    },
+    "totals": {
+      "cations": null,
+      "anions": null,
+      "balance": -0.6,
+      "tds": 611.37
+    },
+    "imbalanceWarning": true,
+    "warningText": "Warning:Ions out of Balance.",
+    "autoBalance": null
+  },
+  "projectExpectsForReference": {
+    "tds": 611.37,
+    "cations": 8.745,
+    "anions": 9.418,
+    "imbalancePct": 7.14,
+    "imbalanceWarning": true
+  },
+  "note": "Vontron keeps the typed mg/L digits (12.345 stays 12.345) and computes ppm/meq from them, then rounds to 2 decimals. Cations 8.8, anions 9.4, balance -0.6, warning shown."
+}

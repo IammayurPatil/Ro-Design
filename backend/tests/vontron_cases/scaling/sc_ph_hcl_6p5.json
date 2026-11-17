@@ -1,0 +1,152 @@
+{
+  "case": "sc_ph_hcl_6p5",
+  "tier": 3,
+  "title": "pH adjust: HCl to 6.5",
+  "purpose": "Cl added instead of SO4 (PROVISIONAL)",
+  "vontronVersion": "6.1",
+  "capturedOn": null,
+  "howTo": "Open projects/scaling_<case>.json in our app (or type the same water into Vontron's Water Analysis tab, then set Recovery / Temp / option on the Scaling tab) and press Scale Calculation. Replace every null under 'vontron' with the value Vontron shows; write \"N/A\" where Vontron shows N/A. 'warnings' = list of names in Vontron's red messages, e.g. [\"CaCO3\",\"BaSO4\"], or [] if none.",
+  "input": {
+    "water": {
+      "inputUnit": "mg/L",
+      "specifyIndividualSolutes": true,
+      "tdsInput": null,
+      "temperatureC": 25,
+      "pH": 7.6,
+      "waterType": "RO Permeate SDI < 1",
+      "ions": {
+        "Na": 129.2,
+        "Ca": 75.0,
+        "Mg": 28.0,
+        "K": 6.0,
+        "Ba": 0.05,
+        "Sr": 1.0,
+        "NH4": 0.0,
+        "B": 0.0,
+        "Cl": 180.0,
+        "CO3": 0.0,
+        "HCO3": 260.0,
+        "F": 0.8,
+        "NO3": 5.0,
+        "SO4": 110.0,
+        "SiO2": 18.0
+      }
+    },
+    "scaling": {
+      "recoveryPct": 75,
+      "temperatureC": 25,
+      "option": "ph_adjust",
+      "phAdjust": {
+        "chemical": "HCl",
+        "targetPH": 6.5
+      },
+      "softening": {
+        "caLeakage": 0.1,
+        "mgLeakage": 0.1
+      }
+    }
+  },
+  "vontron": {
+    "feed": {
+      "pH": null,
+      "TDS": null,
+      "HCO3": null,
+      "CO3": null,
+      "CO2": null,
+      "LSI": null,
+      "SDSI": null,
+      "CaSO4": null,
+      "BaSO4": null,
+      "SrSO4": null,
+      "CaF2": null,
+      "SiO2": null
+    },
+    "adjusted": {
+      "pH": null,
+      "TDS": null,
+      "HCO3": null,
+      "CO3": null,
+      "CO2": null,
+      "LSI": null,
+      "SDSI": null,
+      "CaSO4": null,
+      "BaSO4": null,
+      "SrSO4": null,
+      "CaF2": null,
+      "SiO2": null
+    },
+    "concentrate": {
+      "pH": null,
+      "TDS": null,
+      "HCO3": null,
+      "CO3": null,
+      "CO2": null,
+      "LSI": null,
+      "SDSI": null,
+      "CaSO4": null,
+      "BaSO4": null,
+      "SrSO4": null,
+      "CaF2": null,
+      "SiO2": null
+    },
+    "warnings": null,
+    "acidDose": null
+  },
+  "projectExpectsForReference": {
+    "columns": {
+      "feed": {
+        "pH": 7.6,
+        "TDS": 813.05,
+        "HCO3": 260.0,
+        "CO3": 0.0,
+        "CO2": 13.03,
+        "LSI": 0.31,
+        "SDSI": 0.39,
+        "CaSO4": 1.98,
+        "BaSO4": 172.72,
+        "SrSO4": 2.13,
+        "CaF2": 5.57,
+        "SiO2": 14.27
+      },
+      "adjusted": {
+        "pH": 6.5,
+        "TDS": 774.25,
+        "HCO3": 167.41,
+        "CO3": 0.0,
+        "CO2": 105.63,
+        "LSI": -0.98,
+        "SDSI": -0.91,
+        "CaSO4": 1.98,
+        "BaSO4": 172.72,
+        "SrSO4": 2.13,
+        "CaF2": 5.57,
+        "SiO2": 13.29
+      },
+      "concentrate": {
+        "pH": 7.1,
+        "TDS": 3097.0,
+        "HCO3": 669.62,
+        "CO3": 0.0,
+        "CO2": 105.63,
+        "LSI": 0.77,
+        "SDSI": 0.67,
+        "CaSO4": 16.87,
+        "BaSO4": 869.77,
+        "SrSO4": 15.44,
+        "CaF2": 183.72,
+        "SiO2": 57.01
+      }
+    },
+    "warnings": [
+      "CaCO3",
+      "BaSO4",
+      "CaF2"
+    ],
+    "cf": 4.0,
+    "acidDose": {
+      "chemical": "HCl",
+      "meqPerL": 1.5175233417779603,
+      "mgL": 55.328901041224434
+    }
+  }
+}

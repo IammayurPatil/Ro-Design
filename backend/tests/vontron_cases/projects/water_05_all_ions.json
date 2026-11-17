@@ -1,0 +1,81 @@
+{
+  "version": "1.0",
+  "project": {
+    "name": "water_05_all_ions",
+    "date": "2026-11-15",
+    "designedBy": "Vontron check",
+    "company": "Untitled"
+  },
+  "water": {
+    "inputUnit": "mg/L",
+    "specifyIndividualSolutes": true,
+    "tdsInput": null,
+    "temperatureC": 25,
+    "pH": 7.5,
+    "waterType": "RO Permeate SDI < 1",
+    "ions": {
+      "Na": 80.0,
+      "Ca": 45.0,
+      "Mg": 50.0,
+      "K": 6.0,
+      "Ba": 0.05,
+      "Sr": 0.8,
+      "NH4": 0.5,
+      "B": 0.4,
+      "Cl": 110.0,
+      "CO3": 0.0,
+      "HCO3": 180.0,
+      "F": 0.7,
+      "NO3": 8.5,
+      "SO4": 65.0,
+      "SiO2": 22.0
+    }
+  },
+  "scaling": {
+    "recoveryPct": 15,
+    "temperatureC": 25,
+    "option": "none",
+    "phAdjust": {
+      "chemical": "H2SO4",
+      "targetPH": 7.5
+    },
+    "softening": {
+      "caLeakage": 0.1,
+      "mgLeakage": 0.1
+    }
+  },
+  "design": {
+    "unitSet": "gpm_psi",
+    "recoveryPct": 15,
+    "permeateFlow": 1.1355,
+    "feedTempC": 25,
+    "foulingFactor": 0.85,
+    "passes": [
+      {
+        "stages": [
+          {
+            "vessels": 1,
+            "elementsPerVessel": 1,
+            "elementModel": "LP22-8040",
+            "backPressure": 0
+          }
+        ],
+        "sameElementInPass": true,
+        "sameBackPressure": true
+      }
+    ],
+    "pumpEfficiencyEnabled": false,
+    "pumpEfficiencyPct": 80,
+    "intakeBothEnds": false,
+    "frontEndPct": 50,
+    "recycle": {
+      "enabled": false,
+      "flow": 0
+    }
+  },
+  "results": {
+    "water": null,
+    "scaling": null,
+    "design": null
+  }
+}

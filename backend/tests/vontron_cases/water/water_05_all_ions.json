@@ -1,0 +1,132 @@
+{
+  "case": "water_05_all_ions",
+  "title": "All 15 ions present",
+  "purpose": "Every factor, and TDS with boron (x 5.72)",
+  "vontronVersion": "6.1",
+  "capturedOn": "2026-11-15",
+  "howTo": "In Vontron enter the 'input' below (or open projects/<case>.json in our app and copy the same values). Then replace every null under 'vontron' with the number Vontron shows. Leave B and SiO2 ppmCaCO3 / meq as null.",
+  "input": {
+    "inputUnit": "mg/L",
+    "specifyIndividualSolutes": true,
+    "tdsInput": null,
+    "temperatureC": 25,
+    "pH": 7.5,
+    "waterType": "RO Permeate SDI < 1",
+    "ions": {
+      "Na": 80.0,
+      "Ca": 45.0,
+      "Mg": 50.0,
+      "K": 6.0,
+      "Ba": 0.05,
+      "Sr": 0.8,
+      "NH4": 0.5,
+      "B": 0.4,
+      "Cl": 110.0,
+      "CO3": 0.0,
+      "HCO3": 180.0,
+      "F": 0.7,
+      "NO3": 8.5,
+      "SO4": 65.0,
+      "SiO2": 22.0
+    }
+  },
+  "vontron": {
+    "rows": {
+      "Na": {
+        "mgL": 80,
+        "ppmCaCO3": 174.4,
+        "meq": 3.48
+      },
+      "Ca": {
+        "mgL": 45,
+        "ppmCaCO3": 112.5,
+        "meq": 2.25
+      },
+      "Mg": {
+        "mgL": 50,
+        "ppmCaCO3": 206.0,
+        "meq": 4.11
+      },
+      "K": {
+        "mgL": 6,
+        "ppmCaCO3": 7.68,
+        "meq": 0.15
+      },
+      "Ba": {
+        "mgL": 0.05,
+        "ppmCaCO3": 0.04,
+        "meq": 0.0
+      },
+      "Sr": {
+        "mgL": 0.8,
+        "ppmCaCO3": 0.91,
+        "meq": 0.02
+      },
+      "NH4": {
+        "mgL": 0.5,
+        "ppmCaCO3": 1.39,
+        "meq": 0.03
+      },
+      "B": {
+        "mgL": 0.4,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Cl": {
+        "mgL": 110,
+        "ppmCaCO3": 155.1,
+        "meq": 3.1
+      },
+      "CO3": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "HCO3": {
+        "mgL": 180,
+        "ppmCaCO3": 147.6,
+        "meq": 2.95
+      },
+      "F": {
+        "mgL": 0.7,
+        "ppmCaCO3": 1.86,
+        "meq": 0.04
+      },
+      "NO3": {
+        "mgL": 8.5,
+        "ppmCaCO3": 6.89,
+        "meq": 0.14
+      },
+      "SO4": {
+        "mgL": 65,
+        "ppmCaCO3": 67.6,
+        "meq": 1.35
+      },
+      "SiO2": {
+        "mgL": 22,
+        "ppmCaCO3": null,
+        "meq": null
+      }
+    },
+    "totals": {
+      "cations": null,
+      "anions": null,
+      "balance": 2.4,
+      "tds": 570.84
+    },
+    "imbalanceWarning": true,
+    "warningText": "Warning:Ions out of Balance.",
+    "autoBalance": {
+      "ionChanged": "Cl",
+      "newMgL": 195.2
+    }
+  },
+  "projectExpectsForReference": {
+    "tds": 538.84,
+    "cations": 7.158,
+    "anions": 7.68,
+    "imbalancePct": 6.79,
+    "imbalanceWarning": true
+  },
+  "note": "Vontron screen: Mg 50 (was 15 in the first draft) and CO3 greyed out/0 at pH 7.5. Balance 2.4 = round(cations,1) - round(anions,1) (10.0 - 7.6); our exact balance is 2.459 -> 2.5. OPEN ISSUE. TDS 570.84 confirms B x 5.72 and SiO2 included. Auto Balance (cations 10.0 > anions 7.6): Vontron Cl 110 -> 195.20 (= 2.4 x 35.5); after it Vontron shows cations 10.0, anions 10.0, balance 0.0. Vontron's TDS box right after Auto Balance showed 633.6, which does not equal the ion sum (656.04); treated as a stale/odd display like the checkbox-toggle quirk, not compared."
+}

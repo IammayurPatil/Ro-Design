@@ -1,0 +1,128 @@
+{
+  "case": "water_sweep_02pct",
+  "title": "Imbalance sweep, about 2%",
+  "purpose": "Find the % where Vontron starts showing 'Ions out of Balance' (project: 5%, PROVISIONAL)",
+  "vontronVersion": "6.1",
+  "capturedOn": "2026-11-15",
+  "howTo": "In Vontron enter the 'input' below (or open projects/<case>.json in our app and copy the same values). Then replace every null under 'vontron' with the number Vontron shows. Leave B and SiO2 ppmCaCO3 / meq as null.",
+  "input": {
+    "inputUnit": "mg/L",
+    "specifyIndividualSolutes": true,
+    "tdsInput": null,
+    "temperatureC": 25,
+    "pH": 7.5,
+    "waterType": "RO Permeate SDI < 1",
+    "ions": {
+      "Na": 155.3,
+      "Ca": 60.0,
+      "Mg": 20.0,
+      "K": 5.0,
+      "Ba": 0.0,
+      "Sr": 0.0,
+      "NH4": 0.0,
+      "B": 0.0,
+      "Cl": 204.5,
+      "CO3": 0.0,
+      "HCO3": 200.0,
+      "F": 0.0,
+      "NO3": 10.0,
+      "SO4": 100.0,
+      "SiO2": 0.0
+    }
+  },
+  "vontron": {
+    "rows": {
+      "Na": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Ca": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Mg": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "K": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Ba": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Sr": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "NH4": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "B": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Cl": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "CO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "HCO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "F": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "NO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "SO4": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "SiO2": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      }
+    },
+    "totals": {
+      "cations": null,
+      "anions": null,
+      "balance": null,
+      "tds": null
+    },
+    "imbalanceWarning": true,
+    "warningText": "Warning:Ions out of Balance.",
+    "autoBalance": null
+  },
+  "projectExpectsForReference": {
+    "tds": 754.8,
+    "cations": 11.52,
+    "anions": 11.29,
+    "imbalancePct": 2.0,
+    "imbalanceWarning": false
+  }
+}

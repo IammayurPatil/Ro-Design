@@ -1,0 +1,153 @@
+{
+  "case": "sc_05_temp40",
+  "tier": 1,
+  "title": "Brackish, 40 C",
+  "purpose": "Upper temperature",
+  "vontronVersion": "6.1",
+  "capturedOn": "2026-11-16",
+  "howTo": "Open projects/scaling_<case>.json in our app (or type the same water into Vontron's Water Analysis tab, then set Recovery / Temp / option on the Scaling tab) and press Scale Calculation. Replace every null under 'vontron' with the value Vontron shows; write \"N/A\" where Vontron shows N/A. 'warnings' = list of names in Vontron's red messages, e.g. [\"CaCO3\",\"BaSO4\"], or [] if none.",
+  "input": {
+    "water": {
+      "inputUnit": "mg/L",
+      "specifyIndividualSolutes": true,
+      "tdsInput": null,
+      "temperatureC": 25,
+      "pH": 7.6,
+      "waterType": "RO Permeate SDI < 1",
+      "ions": {
+        "Na": 129.2,
+        "Ca": 75.0,
+        "Mg": 28.0,
+        "K": 6.0,
+        "Ba": 0.05,
+        "Sr": 1.0,
+        "NH4": 0.0,
+        "B": 0.0,
+        "Cl": 180.0,
+        "CO3": 0.0,
+        "HCO3": 260.0,
+        "F": 0.8,
+        "NO3": 5.0,
+        "SO4": 110.0,
+        "SiO2": 18.0
+      }
+    },
+    "scaling": {
+      "recoveryPct": 75,
+      "temperatureC": 40,
+      "option": "none",
+      "phAdjust": {
+        "chemical": "H2SO4",
+        "targetPH": 7.5
+      },
+      "softening": {
+        "caLeakage": 0.1,
+        "mgLeakage": 0.1
+      }
+    }
+  },
+  "vontron": {
+    "feed": {
+      "pH": 7.6,
+      "TDS": 813.0,
+      "HCO3": 260,
+      "CO3": 0,
+      "CO2": 13.03,
+      "LSI": 0.53,
+      "SDSI": 0.74,
+      "CaSO4": 1.4,
+      "BaSO4": 104.1,
+      "SrSO4": 1.92,
+      "CaF2": 4.51,
+      "SiO2": 11.49
+    },
+    "adjusted": {
+      "pH": 7.6,
+      "TDS": 813.0,
+      "HCO3": 260,
+      "CO3": 0,
+      "CO2": 13.03,
+      "LSI": 0.53,
+      "SDSI": 0.74,
+      "CaSO4": 1.4,
+      "BaSO4": 104.1,
+      "SrSO4": 1.92,
+      "CaF2": 4.51,
+      "SiO2": 11.49
+    },
+    "concentrate": {
+      "pH": 8.2,
+      "TDS": 3252.0,
+      "HCO3": 1040,
+      "CO3": 0,
+      "CO2": 13.03,
+      "LSI": 2.1,
+      "SDSI": 2.31,
+      "CaSO4": 11.94,
+      "BaSO4": 524.22,
+      "SrSO4": 13.94,
+      "CaF2": 148.65,
+      "SiO2": 37.71
+    },
+    "warnings": [
+      "CaCO3",
+      "BaSO4",
+      "CaF2"
+    ],
+    "acidDose": null
+  },
+  "projectExpectsForReference": {
+    "columns": {
+      "feed": {
+        "pH": 7.6,
+        "TDS": 813.05,
+        "HCO3": 260.0,
+        "CO3": 0.0,
+        "CO2": 13.03,
+        "LSI": 0.59,
+        "SDSI": 0.75,
+        "CaSO4": 1.4,
+        "BaSO4": 104.19,
+        "SrSO4": 1.93,
+        "CaF2": 4.51,
+        "SiO2": 11.45
+      },
+      "adjusted": {
+        "pH": 7.6,
+        "TDS": 813.05,
+        "HCO3": 260.0,
+        "CO3": 0.0,
+        "CO2": 13.03,
+        "LSI": 0.59,
+        "SDSI": 0.75,
+        "CaSO4": 1.4,
+        "BaSO4": 104.19,
+        "SrSO4": 1.93,
+        "CaF2": 4.51,
+        "SiO2": 11.45
+      },
+      "concentrate": {
+        "pH": 8.2,
+        "TDS": 3252.2,
+        "HCO3": 1040.0,
+        "CO3": 0.0,
+        "CO2": 13.03,
+        "LSI": 2.34,
+        "SDSI": 2.32,
+        "CaSO4": 11.95,
+        "BaSO4": 524.68,
+        "SrSO4": 13.95,
+        "CaF2": 148.8,
+        "SiO2": 37.65
+      }
+    },
+    "warnings": [
+      "CaCO3",
+      "BaSO4",
+      "CaF2"
+    ],
+    "cf": 4.0,
+    "acidDose": null
+  },
+  "knownIssue": "Vontron TDS 813.00 (Water tab also 813.0) misses Ba 0.05: stale TDS (sc_11 shows 875.05 incl. Ba). Re-test after retyping a field. | LSI lower than formula at the unedited pH 7.6 = Vontron 'behaviour A' (prompt open item 1); cases where pH was retyped (6.5, 8.5, 8.8) match the formula exactly."
+}

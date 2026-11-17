@@ -13,6 +13,9 @@ const ION_LABEL: Partial<Record<IonKey, string>> = {
   NH4: 'NH₄', CO3: 'CO₃', HCO3: 'HCO₃', NO3: 'NO₃', SO4: 'SO₄', SiO2: 'SiO₂',
 }
 
+/** Vontron 6.1 never allows CO3 to be typed (always 0), so it is read-only here too. */
+const READ_ONLY_IONS: IonKey[] = ['CO3']
+
 /**
  * Ion table. Only the column of the selected input unit is editable; B and SiO2 show "n.a"
  * in the other two columns. Values shown come from the backend analysis when available.
@@ -47,7 +50,7 @@ export function IonGrid({
               <th scope="row" className="py-1 pr-2 text-left font-medium">{ION_LABEL[ion] ?? ion}</th>
               {COLS.map((c) => {
                 const notApplicable = neutral && c.unit !== 'mg/L'
-                const editable = c.unit === inputUnit && !locked && !notApplicable
+                const editable = c.unit === inputUnit && !locked && !notApplicable && !READ_ONLY_IONS.includes(ion)
                 const row = analysis?.rows?.[ion]
                 const value = row ? row[c.key] : fromMgL(constants, ion, mgL[ion] ?? 0, c.unit)
                 return (

@@ -1,0 +1,129 @@
+{
+  "case": "water_09_mg_1000",
+  "title": "Mg 1000 mg/L",
+  "purpose": "Pins the Mg equivalent weight (12.155) and the large-value ppm factor",
+  "vontronVersion": "6.1",
+  "capturedOn": "2026-11-15",
+  "howTo": "In Vontron enter the 'input' below (or open projects/<case>.json in our app and copy the same values). Then replace every null under 'vontron' with the number Vontron shows. Leave B and SiO2 ppmCaCO3 / meq as null.",
+  "input": {
+    "inputUnit": "mg/L",
+    "specifyIndividualSolutes": true,
+    "tdsInput": null,
+    "temperatureC": 25,
+    "pH": 7.5,
+    "waterType": "RO Permeate SDI < 1",
+    "ions": {
+      "Na": 80.0,
+      "Ca": 45.0,
+      "Mg": 1000.0,
+      "K": 6.0,
+      "Ba": 0.05,
+      "Sr": 0.8,
+      "NH4": 0.5,
+      "B": 0.4,
+      "Cl": 110.0,
+      "CO3": 0.0,
+      "HCO3": 180.0,
+      "F": 0.7,
+      "NO3": 8.5,
+      "SO4": 65.0,
+      "SiO2": 22.0
+    }
+  },
+  "vontron": {
+    "rows": {
+      "Na": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Ca": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Mg": {
+        "mgL": 1000,
+        "ppmCaCO3": 4120.0,
+        "meq": 82.27
+      },
+      "K": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Ba": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Sr": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "NH4": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "B": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Cl": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "CO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "HCO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "F": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "NO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "SO4": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "SiO2": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      }
+    },
+    "totals": {
+      "cations": null,
+      "anions": null,
+      "balance": 80.6,
+      "tds": null
+    },
+    "imbalanceWarning": true,
+    "warningText": "Warning:Ions out of Balance.",
+    "autoBalance": null
+  },
+  "projectExpectsForReference": {
+    "tds": 538.84,
+    "cations": 7.158,
+    "anions": 7.68,
+    "imbalancePct": 6.79,
+    "imbalanceWarning": true
+  },
+  "note": "Vontron: Mg 1000 -> ppm 4120.00, meq 82.27, cations 88.2, anions 7.6, balance 80.6 (TDS shown 1520.8 to 1 decimal only, not compared). Other rows left uncaptured."
+}

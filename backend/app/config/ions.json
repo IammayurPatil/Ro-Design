@@ -3,7 +3,7 @@
   "ions": {
     "Na":   { "group": "cation",  "charge": 1,  "eqWt": 23.00, "caco3Factor": 2.18, "molWt": 22.990 },
     "Ca":   { "group": "cation",  "charge": 2,  "eqWt": 20.04, "caco3Factor": 2.50, "molWt": 40.078 },
-    "Mg":   { "group": "cation",  "charge": 2,  "eqWt": 12.15, "caco3Factor": 4.12, "molWt": 24.305 },
+    "Mg":   { "group": "cation",  "charge": 2,  "eqWt": 12.155, "caco3Factor": 4.12, "molWt": 24.305 },
     "K":    { "group": "cation",  "charge": 1,  "eqWt": 39.10, "caco3Factor": 1.28, "molWt": 39.098 },
     "Ba":   { "group": "cation",  "charge": 2,  "eqWt": 68.67, "caco3Factor": 0.73, "molWt": 137.327 },
     "Sr":   { "group": "cation",  "charge": 2,  "eqWt": 43.81, "caco3Factor": 1.14, "molWt": 87.62 },
@@ -14,9 +14,11 @@
     "HCO3": { "group": "anion",   "charge": -1, "eqWt": 61.02, "caco3Factor": 0.82, "molWt": 61.017 },
     "F":    { "group": "anion",   "charge": -1, "eqWt": 19.00, "caco3Factor": 2.66, "molWt": 18.998 },
     "NO3":  { "group": "anion",   "charge": -1, "eqWt": 62.00, "caco3Factor": 0.81, "molWt": 62.004 },
-    "SO4":  { "group": "anion",   "charge": -2, "eqWt": 48.03, "caco3Factor": 1.04, "molWt": 96.06 },
+    "SO4":  { "group": "anion",   "charge": -2, "eqWt": 48.00, "caco3Factor": 1.04, "molWt": 96.06 },
     "SiO2": { "group": "neutral", "charge": 0,  "eqWt": null,  "caco3Factor": null, "molWt": 60.08 }
   },
+  "lockedIons": ["CO3"],
+  "_lockedIons": "CONFIRMED against Vontron 6.1: the CO3 box is always disabled (checked at pH 7.5, 8.0, 8.3, 8.5, 9.0, 10.0). It is always 0, so the calculation ignores any typed or loaded CO3.",
   "order": ["Na", "Ca", "Mg", "K", "Ba", "Sr", "NH4", "B", "Cl", "CO3", "HCO3", "F", "NO3", "SO4", "SiO2"],
   "tds": {
     "boronAsBoricAcidFactor": 5.72
@@ -31,16 +33,21 @@
     "mgLDecimals": 2
   },
   "balance": {
-    "imbalanceWarningFraction": 0.05,
-    "_imbalanceWarningFraction": "PROVISIONAL / TODO-CONFIRM: observed 10% warns, 0.1% does not.",
+    "imbalanceWarningMeq": 0.1,
+    "_imbalanceWarningMeq": "CONFIRMED against Vontron 6.1 sweep: warning shows when |balance| > 0.1 meq/L (displayed, 1 decimal): 0.1 no, 0.2 yes, 0.7 yes. NOT percentage based (0.12% at TDS 35000 still warns).",
     "warningText": "Warning:Ions out of Balance.",
     "autoBalanceRoundTo1Decimal": true,
     "anionExcessIon": "Na",
     "cationExcessIon": "Cl",
-    "_cationExcessIon": "PROVISIONAL / TODO-CONFIRM: the Cl correction when cations exceed anions is not yet confirmed."
+    "_cationExcessIon": "CONFIRMED against Vontron 6.1 (cations 10.0 vs anions 7.6, Cl 110 -> 195.20).",
+    "correctionMgPerMeq": { "Na": 23.00, "Cl": 35.5 },
+    "_correctionMgPerMeq": "mg/L added per meq of balance. Vontron uses 35.5 for Cl here (not the 35.45 used for the meq column): 110 + 2.4 x 35.5 = 195.20.",
+    "balanceFromRoundedTotals": true,
+    "_balanceFromRoundedTotals": "Vontron shows Balance = round(cations,1) - round(anions,1) (10.0 - 7.6 = 2.4, exact 2.459) and corrects by that value."
   },
   "validation": {
-    "temperatureC": { "min": 1, "max": 45 },
-    "pH": { "min": 1, "max": 13 }
+    "_notes": "CONFIRMED against Vontron 6.1 Water Analysis messages: 'Temperature Limits:0~40 C' and 'Limits of pH:0~14'. Whether the end values are accepted is not tested yet.",
+    "temperatureC": { "min": 0, "max": 40 },
+    "pH": { "min": 0, "max": 14 }
   }
 }

@@ -1,0 +1,129 @@
+{
+  "case": "water_03_brackish",
+  "title": "Brackish well water",
+  "purpose": "Normal conversions",
+  "vontronVersion": "6.1",
+  "capturedOn": "2026-11-15",
+  "howTo": "In Vontron enter the 'input' below (or open projects/<case>.json in our app and copy the same values). Then replace every null under 'vontron' with the number Vontron shows. Leave B and SiO2 ppmCaCO3 / meq as null.",
+  "input": {
+    "inputUnit": "mg/L",
+    "specifyIndividualSolutes": true,
+    "tdsInput": null,
+    "temperatureC": 25,
+    "pH": 7.6,
+    "waterType": "RO Permeate SDI < 1",
+    "ions": {
+      "Na": 126.9,
+      "Ca": 75.0,
+      "Mg": 28.0,
+      "K": 6.0,
+      "Ba": 0.0,
+      "Sr": 0.0,
+      "NH4": 0.0,
+      "B": 0.0,
+      "Cl": 180.0,
+      "CO3": 0.0,
+      "HCO3": 260.0,
+      "F": 0.0,
+      "NO3": 5.0,
+      "SO4": 110.0,
+      "SiO2": 18.0
+    }
+  },
+  "vontron": {
+    "rows": {
+      "Na": {
+        "mgL": 126.9,
+        "ppmCaCO3": 276.64,
+        "meq": 5.52
+      },
+      "Ca": {
+        "mgL": 75,
+        "ppmCaCO3": 187.5,
+        "meq": 3.74
+      },
+      "Mg": {
+        "mgL": 28,
+        "ppmCaCO3": 115.36,
+        "meq": 2.3
+      },
+      "K": {
+        "mgL": 6,
+        "ppmCaCO3": 7.68,
+        "meq": 0.15
+      },
+      "Ba": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "Sr": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "NH4": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "B": {
+        "mgL": 0,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Cl": {
+        "mgL": 180,
+        "ppmCaCO3": 253.8,
+        "meq": 5.08
+      },
+      "CO3": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "HCO3": {
+        "mgL": 260,
+        "ppmCaCO3": 213.2,
+        "meq": 4.26
+      },
+      "F": {
+        "mgL": 0,
+        "ppmCaCO3": 0,
+        "meq": 0
+      },
+      "NO3": {
+        "mgL": 5,
+        "ppmCaCO3": 4.05,
+        "meq": 0.08
+      },
+      "SO4": {
+        "mgL": 110,
+        "ppmCaCO3": 114.4,
+        "meq": 2.29
+      },
+      "SiO2": {
+        "mgL": 18,
+        "ppmCaCO3": null,
+        "meq": null
+      }
+    },
+    "totals": {
+      "cations": null,
+      "anions": null,
+      "balance": 0.0,
+      "tds": 808.9
+    },
+    "imbalanceWarning": false,
+    "warningText": null,
+    "autoBalance": null
+  },
+  "projectExpectsForReference": {
+    "tds": 802.0,
+    "cations": 11.418,
+    "anions": 11.709,
+    "imbalancePct": 2.49,
+    "imbalanceWarning": false
+  },
+  "note": "Cation/anion totals shown by Vontron only to 1 decimal (11.7), so they are not compared. TDS 808.90 = edit SiO2 and file reopen. Vontron's 'Specify Individual Solutes' re-tick shows 791 (excludes SiO2): a Vontron quirk, not replicated."
+}

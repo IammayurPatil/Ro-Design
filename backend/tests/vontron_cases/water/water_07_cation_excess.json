@@ -1,0 +1,131 @@
+{
+  "case": "water_07_cation_excess",
+  "title": "Cation excess",
+  "purpose": "Auto balance when cations exceed anions (Cl rule is PROVISIONAL)",
+  "vontronVersion": "6.1",
+  "capturedOn": null,
+  "howTo": "In Vontron enter the 'input' below (or open projects/<case>.json in our app and copy the same values). Then replace every null under 'vontron' with the number Vontron shows. Leave B and SiO2 ppmCaCO3 / meq as null.",
+  "input": {
+    "inputUnit": "mg/L",
+    "specifyIndividualSolutes": true,
+    "tdsInput": null,
+    "temperatureC": 25,
+    "pH": 7.5,
+    "waterType": "RO Permeate SDI < 1",
+    "ions": {
+      "Na": 300.0,
+      "Ca": 80.0,
+      "Mg": 25.0,
+      "K": 10.0,
+      "Ba": 0.0,
+      "Sr": 0.0,
+      "NH4": 0.0,
+      "B": 0.0,
+      "Cl": 100.0,
+      "CO3": 0.0,
+      "HCO3": 150.0,
+      "F": 0.0,
+      "NO3": 0.0,
+      "SO4": 60.0,
+      "SiO2": 0.0
+    }
+  },
+  "vontron": {
+    "rows": {
+      "Na": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Ca": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Mg": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "K": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Ba": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Sr": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "NH4": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "B": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Cl": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "CO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "HCO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "F": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "NO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "SO4": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "SiO2": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      }
+    },
+    "totals": {
+      "cations": null,
+      "anions": null,
+      "balance": null,
+      "tds": null
+    },
+    "imbalanceWarning": null,
+    "warningText": null,
+    "autoBalance": {
+      "ionChanged": null,
+      "newMgL": null
+    }
+  },
+  "projectExpectsForReference": {
+    "tds": 725.0,
+    "cations": 19.349,
+    "anions": 6.528,
+    "imbalancePct": 66.26,
+    "imbalanceWarning": true
+  }
+}

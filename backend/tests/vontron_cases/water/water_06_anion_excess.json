@@ -1,0 +1,178 @@
+{
+  "case": "water_06_anion_excess",
+  "title": "Anion excess",
+  "purpose": "Auto balance adds Na (confirmed rule)",
+  "vontronVersion": "6.1",
+  "capturedOn": "2026-11-15",
+  "howTo": "In Vontron enter the 'input' below (or open projects/<case>.json in our app and copy the same values). Then replace every null under 'vontron' with the number Vontron shows. Leave B and SiO2 ppmCaCO3 / meq as null.",
+  "input": {
+    "inputUnit": "mg/L",
+    "specifyIndividualSolutes": true,
+    "tdsInput": null,
+    "temperatureC": 25,
+    "pH": 7.5,
+    "waterType": "RO Permeate SDI < 1",
+    "ions": {
+      "Na": 50.0,
+      "Ca": 30.0,
+      "Mg": 10.0,
+      "K": 3.0,
+      "Ba": 0.0,
+      "Sr": 0.0,
+      "NH4": 0.0,
+      "B": 0.0,
+      "Cl": 150.0,
+      "CO3": 0.0,
+      "HCO3": 120.0,
+      "F": 0.0,
+      "NO3": 0.0,
+      "SO4": 80.0,
+      "SiO2": 0.0
+    }
+  },
+  "vontron": {
+    "rows": {
+      "Na": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Ca": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Mg": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "K": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Ba": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Sr": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "NH4": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "B": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "Cl": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "CO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "HCO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "F": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "NO3": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "SO4": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      },
+      "SiO2": {
+        "mgL": null,
+        "ppmCaCO3": null,
+        "meq": null
+      }
+    },
+    "totals": {
+      "cations": null,
+      "anions": null,
+      "balance": null,
+      "tds": null
+    },
+    "imbalanceWarning": null,
+    "warningText": null,
+    "autoBalance": {
+      "ionChanged": "Na",
+      "newMgL": 125.9
+    },
+    "afterAutoBalance": {
+      "rows": {
+        "Na": {
+          "mgL": 125.9,
+          "ppmCaCO3": 274.46,
+          "meq": 5.47
+        },
+        "Ca": {
+          "mgL": 30,
+          "ppmCaCO3": 75.0,
+          "meq": 1.5
+        },
+        "Mg": {
+          "mgL": 10,
+          "ppmCaCO3": 41.2,
+          "meq": 0.82
+        },
+        "K": {
+          "mgL": 3,
+          "ppmCaCO3": 3.84,
+          "meq": 0.08
+        },
+        "Cl": {
+          "mgL": 150,
+          "ppmCaCO3": 211.5,
+          "meq": 4.23
+        },
+        "HCO3": {
+          "mgL": 120,
+          "ppmCaCO3": 98.4,
+          "meq": 1.97
+        },
+        "SO4": {
+          "mgL": 80,
+          "ppmCaCO3": 83.2,
+          "meq": 1.67
+        }
+      },
+      "totals": {
+        "cations": null,
+        "anions": null,
+        "balance": 0.0,
+        "tds": 518.9
+      },
+      "imbalanceWarning": false
+    }
+  },
+  "projectExpectsForReference": {
+    "tds": 443.0,
+    "cations": 4.571,
+    "anions": 7.864,
+    "imbalancePct": 41.87,
+    "imbalanceWarning": true
+  },
+  "note": "Pre-balance values not captured (only the post-balance screen). Vontron: balance 4.6 - 7.9 = -3.3 meq, Na 50 -> 125.90 (= 3.3 x 23). After: TDS 518.9, balance 0.0, no warning. Cations/anions shown to 1 decimal (7.9) so not compared."
+}
