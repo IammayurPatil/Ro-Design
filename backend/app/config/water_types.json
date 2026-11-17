@@ -1,0 +1,22 @@
+{
+  "_notes": "Design limits per water type. ALL limits are PROVISIONAL / TODO-CONFIRM. null = not configured (the check is skipped). A type's own 'limits' override the defaults.",
+  "defaults": {
+    "maxFeedPerVesselGpm": 75,
+    "maxDpPerVesselPsi": 60,
+    "minConcPerVesselGpm": null,
+    "_minConcPerVesselGpm": "The prompt says 12-16 gpm depending on the water type; the exact value per type is not yet known.",
+    "avgFluxGfd": { "min": null, "max": null },
+    "maxElementRecoveryPct": null
+  },
+  "types": [
+    { "name": "RO Permeate SDI < 1", "limits": {} },
+    { "name": "Well Water SDI < 3", "limits": {} },
+    { "name": "Tap Water SDI < 3", "limits": {} },
+    { "name": "Surface Supply SDI < 3", "limits": {} },
+    { "name": "Surface Supply SDI < 5", "limits": {} },
+    { "name": "Wastewater (MF/UF) SDI<3", "limits": {} },
+    { "name": "Wastewater (Conventional) SDI<5", "limits": {} },
+    { "name": "Seawater (MF/UF) SDI<3", "limits": {} },
+    { "name": "Seawater (Conventional) SDI<5", "limits": {} }
+  ]
+}

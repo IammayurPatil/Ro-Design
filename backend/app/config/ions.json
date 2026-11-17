@@ -1,0 +1,46 @@
+{
+  "_notes": "Ion constants for the Water Analysis page (prompt section 4). Keys starting with '_' are documentation only.",
+  "ions": {
+    "Na":   { "group": "cation",  "charge": 1,  "eqWt": 23.00, "caco3Factor": 2.18, "molWt": 22.990 },
+    "Ca":   { "group": "cation",  "charge": 2,  "eqWt": 20.04, "caco3Factor": 2.50, "molWt": 40.078 },
+    "Mg":   { "group": "cation",  "charge": 2,  "eqWt": 12.15, "caco3Factor": 4.12, "molWt": 24.305 },
+    "K":    { "group": "cation",  "charge": 1,  "eqWt": 39.10, "caco3Factor": 1.28, "molWt": 39.098 },
+    "Ba":   { "group": "cation",  "charge": 2,  "eqWt": 68.67, "caco3Factor": 0.73, "molWt": 137.327 },
+    "Sr":   { "group": "cation",  "charge": 2,  "eqWt": 43.81, "caco3Factor": 1.14, "molWt": 87.62 },
+    "NH4":  { "group": "cation",  "charge": 1,  "eqWt": 18.04, "caco3Factor": 2.78, "molWt": 18.04 },
+    "B":    { "group": "neutral", "charge": 0,  "eqWt": null,  "caco3Factor": null, "molWt": 10.81 },
+    "Cl":   { "group": "anion",   "charge": -1, "eqWt": 35.45, "caco3Factor": 1.41, "molWt": 35.453 },
+    "CO3":  { "group": "anion",   "charge": -2, "eqWt": 30.00, "caco3Factor": 1.67, "molWt": 60.008 },
+    "HCO3": { "group": "anion",   "charge": -1, "eqWt": 61.02, "caco3Factor": 0.82, "molWt": 61.017 },
+    "F":    { "group": "anion",   "charge": -1, "eqWt": 19.00, "caco3Factor": 2.66, "molWt": 18.998 },
+    "NO3":  { "group": "anion",   "charge": -1, "eqWt": 62.00, "caco3Factor": 0.81, "molWt": 62.004 },
+    "SO4":  { "group": "anion",   "charge": -2, "eqWt": 48.03, "caco3Factor": 1.04, "molWt": 96.06 },
+    "SiO2": { "group": "neutral", "charge": 0,  "eqWt": null,  "caco3Factor": null, "molWt": 60.08 }
+  },
+  "order": ["Na", "Ca", "Mg", "K", "Ba", "Sr", "NH4", "B", "Cl", "CO3", "HCO3", "F", "NO3", "SO4", "SiO2"],
+  "tds": {
+    "boronAsBoricAcidFactor": 5.72
+  },
+  "tdsOnlyMode": {
+    "_notes": "Specify Individual Solutes unticked: TDS is split into Na and Cl.",
+    "split": { "Na": 0.393236, "Cl": 0.606764 }
+  },
+  "rounding": {
+    "_notes": "Vontron rounds mg/L to 2 decimals before converting (golden 10.1: Na 786.47 -> ppm 1714.50, not 1714.51). Inferred from the golden data.",
+    "roundMgLTo2Decimals": true,
+    "mgLDecimals": 2
+  },
+  "balance": {
+    "imbalanceWarningFraction": 0.05,
+    "_imbalanceWarningFraction": "PROVISIONAL / TODO-CONFIRM: observed 10% warns, 0.1% does not.",
+    "warningText": "Warning:Ions out of Balance.",
+    "autoBalanceRoundTo1Decimal": true,
+    "anionExcessIon": "Na",
+    "cationExcessIon": "Cl",
+    "_cationExcessIon": "PROVISIONAL / TODO-CONFIRM: the Cl correction when cations exceed anions is not yet confirmed."
+  },
+  "validation": {
+    "temperatureC": { "min": 1, "max": 45 },
+    "pH": { "min": 1, "max": 13 }
+  }
+}

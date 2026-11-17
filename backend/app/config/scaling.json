@@ -1,0 +1,69 @@
+{
+  "_notes": "Scaling page constants (prompt section 5).",
+  "co2": {
+    "_notes": "CO2 (mg/L) = HCO3 (mg/L) x 10^(pK - pH). No temperature dependence.",
+    "pK": 6.3
+  },
+  "concentrateTds": {
+    "_notes": "Vontron computes TDS_conc = (adjusted feed TDS rounded to 2 decimals) x CF. Inferred from golden 10.5: 979.92 x 4 = 3919.68 (unrounded 979.922 x 4 = 3919.69).",
+    "useRoundedFeedTds": true,
+    "decimals": 2
+  },
+  "sdsi": {
+    "_notes": "K = c0 + c1*I + c2*I^2 + cT*(T - 25). CONFIRMED for I = 0.02-0.13. PROVISIONAL / TODO-CONFIRM for I > 0.13 (seawater).",
+    "c0": 2.031, "c1": 5.497, "c2": -9.12, "cT": -0.024,
+    "caDivisor": 40078, "alkDivisor": 61017,
+    "confirmedMaxIonicStrength": 0.13
+  },
+  "lsi": {
+    "_notes": "pHs = base + A + B - C - D. lsiMode 'standard' = behaviour B. PROVISIONAL / TODO-CONFIRM: behaviour A and the temperature effect.",
+    "lsiMode": "standard",
+    "base": 9.3,
+    "aOffset": 1, "aDivisor": 10,
+    "bSlope": -13.12, "bIntercept": 34.55,
+    "caToCaCO3": 2.50, "cOffset": 0.4
+  },
+  "ksp": {
+    "_notes": "Ksp(I,T) = K * I^n * exp(E*(1/refTempK - 1/(T+273.15))). PROVISIONAL / TODO-CONFIRM general form (confirmed for TC-Water A only).",
+    "refTempK": 298.15,
+    "salts": {
+      "CaSO4":         { "K": 7.09e-4,  "n": 0.4544, "E": 2150, "cation": "Ca", "anion": "SO4", "anionPower": 1 },
+      "BaSO4":         { "K": 7.60e-9,  "n": 0.8339, "E": 3146, "cation": "Ba", "anion": "SO4", "anionPower": 1 },
+      "SrSO4":         { "K": 6.52e-6,  "n": 0.5715, "E": 634,  "cation": "Sr", "anion": "SO4", "anionPower": 1 },
+      "SrSO4_highTDS": { "K": 6.55e-7,  "n": 0.4416, "E": 634,  "cation": "Sr", "anion": "SO4", "anionPower": 1 },
+      "CaF2":          { "K": 4.31e-10, "n": 0.4785, "E": 1312, "cation": "Ca", "anion": "F",   "anionPower": 2 }
+    },
+    "replicateVontronSrSO4Jump": true,
+    "_replicateVontronSrSO4Jump": "PROVISIONAL / TODO-CONFIRM: awaiting client decision. When false, the low-TDS SrSO4 constants are always used.",
+    "srso4TdsThreshold": 4000
+  },
+  "warnings": {
+    "textTemplate": "{X} Saturation limits  exceeded ,Antiscalants may be required or change your system design.",
+    "lsiThreshold": 0,
+    "_lsiThreshold": "PROVISIONAL / TODO-CONFIRM: the CaCO3 warning is shown when concentrate LSI > this value.",
+    "saturationLimitPct": { "CaSO4": 100, "BaSO4": 100, "SrSO4": 100, "CaF2": 100, "SiO2": 100 },
+    "antiscalantLimits": {
+      "_notes": "PROVISIONAL / TODO-CONFIRM: limits used when 'Dosing Antiscalants' is selected. Default = the same as without antiscalant.",
+      "lsiThreshold": 0,
+      "saturationLimitPct": { "CaSO4": 100, "BaSO4": 100, "SrSO4": 100, "CaF2": 100, "SiO2": 100 }
+    }
+  },
+  "phAdjust": {
+    "_notes": "PROVISIONAL / TODO-CONFIRM: no Vontron data yet. Total carbonate is conserved; HCO3/CO2 = 10^(pH - pK) on a molar basis.",
+    "co2MolWt": 44.01,
+    "acids": {
+      "H2SO4": { "doseMgPerMeq": 49.04, "addsIon": "SO4", "ionMgPerMeq": 48.03 },
+      "HCl":   { "doseMgPerMeq": 36.46, "addsIon": "Cl",  "ionMgPerMeq": 35.45 }
+    }
+  },
+  "softening": {
+    "_notes": "PROVISIONAL / TODO-CONFIRM: Na += [(Ca-CaLeak)/caEqWt + (Mg-MgLeak)/mgEqWt] * naEqWt.",
+    "caEqWt": 20.04, "mgEqWt": 12.15, "naEqWt": 23.00
+  },
+  "trafficLight": {
+    "_notes": "Dashboard: green < amberFraction x limit, amber up to the limit, red above.",
+    "amberFraction": 0.8,
+    "lsiAmberBand": 0.2,
+    "_lsiAmberBand": "PROVISIONAL / TODO-CONFIRM: LSI is a difference, not a %, so it is amber when within this band below the CaCO3 threshold."
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "_notes": "Golden values from Vontron RO Design Software 6.1 (prompt section 10). Default tolerance: +/-0.01 on displayed values.",
+  "tolerances": {
+    "default": { "abs": 0.01 },
+    "saturationPct": {
+      "rel": 0.0015,
+      "reason": "The Ksp constants K in the prompt are given to 3 significant figures (e.g. 7.60e-9), which alone causes up to ~0.1% error at large Sat% values. Constants are NOT tuned (rule 1)."
+    },
+    "silicaConcentratePct": {
+      "rel": 0.007,
+      "reason": "Linear interpolation of the 25-point silica table matches Vontron exactly at the table pH points (10.7) but differs by up to 0.6% between points, which is where concentrate pH values fall. Open item."
+    },
+    "silicaTemperaturePct": {
+      "abs": 0.03,
+      "reason": "Temperature factor (T+35.8)/60.8 reproduces 10/35 C feed silica to within 0.02. Open item."
+    },
+    "sdsiTemperature": {
+      "abs": 0.015,
+      "reason": "At 10 and 35 C the S&DSI formula gives values 0.010-0.013 below Vontron (exact at 25 C). Open item."
+    }
+  },
+  "water": {
+    "naclTds2000": {
+      "water": { "inputUnit": "mg/L", "specifyIndividualSolutes": false, "tdsInput": 2000, "temperatureC": 25, "pH": 7.5 },
+      "expect": { "Na": 786.47, "Na_ppm": 1714.50, "Cl": 1213.53, "Cl_ppm": 1711.08, "tds": 2000.00 }
+    },
+    "tdsOnly": [
+      { "tds": 1500, "expect": { "Na": 589.85, "Na_meq": 25.65, "Cl": 910.15, "Cl_meq": 25.67 } },
+      { "tds": 5000, "expect": { "Na": 1966.18, "Na_meq": 85.49, "Cl": 3033.82, "Cl_meq": 85.58, "balance": -0.1 } }
+    ],
+    "tcWaterA": {
+      "ions": { "Na": 150, "Ca": 80, "Mg": 25, "K": 8, "Ba": 0.05, "Sr": 1.0, "NH4": 0, "B": 0.1,
+                "Cl": 220, "CO3": 0, "HCO3": 250, "F": 0.8, "NO3": 10, "SO4": 180, "SiO2": 20 },
+      "pH": 7.6, "temperatureC": 25,
+      "expectPpm": { "Na": 327.00, "Ca": 200.00, "Mg": 103.00, "K": 10.24, "Sr": 1.14, "Cl": 310.20,
+                     "HCO3": 205.00, "F": 2.13, "NO3": 8.10, "SO4": 187.20 },
+      "expectMeq": { "Na": 6.52, "Ca": 3.99, "Mg": 2.06, "K": 0.20, "Cl": 6.21, "HCO3": 4.10, "F": 0.04,
+                     "NO3": 0.16, "SO4": 3.75 },
+      "expectTotals": { "tds": 945.42, "cations": 12.8, "anions": 14.3, "balance": -1.5 },
+      "expectImbalanceWarning": true,
+      "afterBalance": {
+        "Na": 184.50, "Na_meq": 8.02, "Na_ppm": 402.21, "tds": 979.92, "balance": 0.0,
+        "tdsVariants": [
+          { "change": { "B": 0 }, "tds": 979.35 },
+          { "change": { "B": 1.0 }, "tds": 985.07 },
+          { "change": { "SiO2": 0 }, "tds": 959.92 }
+        ]
+      }
+    }
+  },
+  "scaling": {
+    "naclRecovery15": { "expect": { "cf": 1.1765, "tdsConc": 2352.94, "pHFeed": 7.50, "pHConc": 7.57 } },
+    "tcWaterABalancedFeed25C": {
+      "pH": 7.60, "CO2": 12.53, "SDSI": 0.38, "CaSO4": 3.18, "BaSO4": 242.48, "SrSO4": 3.14, "CaF2": 5.44, "SiO2": 15.86
+    },
+    "recoverySweep25C": [
+      { "recovery": 25, "pH": 7.72, "TDS": 1306.56, "SDSI": 0.72, "CaSO4": 4.96, "BaSO4": 339.14, "SrSO4": 4.73, "CaF2": 11.24, "SiO2": 21.10 },
+      { "recovery": 50, "pH": 7.90, "TDS": 1959.84, "SDSI": 1.19, "CaSO4": 9.28, "BaSO4": 544.14, "SrSO4": 8.45, "CaF2": 31.25, "SiO2": 30.38 },
+      { "recovery": 65, "pH": 8.06, "TDS": 2799.77, "SDSI": 1.58, "CaSO4": 16.11, "BaSO4": 824.79, "SrSO4": 14.06, "CaF2": 76.80, "SiO2": 40.37 },
+      { "recovery": 75, "pH": 8.20, "TDS": 3919.68, "SDSI": 1.92, "CaSO4": 27.10, "BaSO4": 1221.08, "SrSO4": 22.75, "CaF2": 179.38, "SiO2": 52.21 },
+      { "recovery": 76, "pH": 8.22, "TDS": 4083.00, "SDSI": 1.96, "CaSO4": 28.86, "BaSO4": 1280.61, "SrSO4": 172.93, "CaF2": 198.82, "SiO2": 53.83 },
+      { "recovery": 80, "pH": 8.30, "TDS": 4899.60, "SDSI": 2.14, "CaSO4": 38.26, "BaSO4": 1583.99, "SrSO4": 229.76, "CaF2": 314.84, "SiO2": 61.64 },
+      { "recovery": 85, "pH": 8.42, "TDS": 6532.80, "SDSI": 2.40, "CaSO4": 59.68, "BaSO4": 2215.35, "SrSO4": 359.72, "CaF2": 650.24, "SiO2": 76.04 }
+    ],
+    "warnings": {
+      "75": ["CaCO3", "BaSO4", "CaF2"],
+      "80": ["CaCO3", "BaSO4", "SrSO4", "CaF2"]
+    },
+    "temperature75": [
+      { "T": 10, "feed": { "CaSO4": 4.66, "BaSO4": 424.06, "SrSO4": 3.51, "CaF2": 6.87, "SiO2": 21.03 },
+                 "conc": { "CaSO4": 39.71, "BaSO4": 2135.47, "SrSO4": 25.46, "CaF2": 226.48, "SiO2": 69.33 } },
+      { "T": 35, "feed": { "CaSO4": 2.52, "BaSO4": 172.18, "SrSO4": 2.93, "CaF2": 4.72, "SiO2": 13.64 },
+                 "conc": { "CaSO4": 21.44, "BaSO4": 867.06, "SrSO4": 21.23, "CaF2": 155.50, "SiO2": 44.84 } }
+    ],
+    "sdsiTemperature50pH7": [
+      { "T": 10, "feed": -0.57, "conc": 0.24 },
+      { "T": 35, "feed": 0.03, "conc": 0.84 }
+    ],
+    "pHSweep50": {
+      "sdsiFeedOffset": -7.22,
+      "sdsiConcMinusFeed": 0.81,
+      "sdsiPHs": [5.0, 6.0, 7.6, 9.0, 10.0],
+      "lsi": [
+        { "pH": 5.0, "feed": -2.29, "conc": -1.41 },
+        { "pH": 6.0, "feed": -1.29, "conc": -0.41 },
+        { "pH": 8.0, "feed": 0.71, "conc": 1.59 },
+        { "pH": 9.0, "feed": 1.71, "conc": 2.59 },
+        { "pH": 10.0, "feed": 2.71, "conc": 3.59 }
+      ],
+      "silicaFeed": [
+        { "pH": 5.0, "SiO2": 12.75 }, { "pH": 6.0, "SiO2": 14.03 }, { "pH": 6.5, "SiO2": 14.77 },
+        { "pH": 7.6, "SiO2": 15.86 }, { "pH": 8.0, "SiO2": 14.47 }, { "pH": 8.5, "SiO2": 10.84 },
+        { "pH": 9.0, "SiO2": 7.75 }, { "pH": 9.5, "SiO2": 5.58 }, { "pH": 10.0, "SiO2": 4.11 }
+      ]
+    }
+  },
+  "design": {
+    "naclSample": {
+      "permeateGpm": 5, "recoveryPct": 15, "vessels": 1, "elementsPerVessel": 1, "elementModel": "LP22-8040",
+      "expect": { "feedGpm": 33.33, "fluxGfd": 18.0 }
+    }
+  }
+}
